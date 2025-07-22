@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Acoustic Fire Extinguisher Predictor 🔊🔥</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1f4037, #99f2c8);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Acoustic Fire Extinguisher Predictor 🔊</h1>
+
+  <form action="/predict" method="post">
+    <label>Flame Size:</label>
+    <input type="number" name="size" step="0.1" required>
+
+    <label>Fuel Type:</label>
+    <select name="fuel" required>
+      <option value="Gasoline">Gasoline</option>
+      <option value="Thinner">Thinner</option>
+      <option value="Kerosene">Kerosene</option>
+      <option value="LPG">LPG</option>
+    </select>
+
+    <label>Distance (cm):</label>
+    <input type="number" name="distance" step="0.1" required>
+
+    <label>Desibel (dB):</label>
+    <input type="number" name="desibel" step="0.1" required>
+
+    <label>Airflow (m/s):</label>
+    <input type="number" name="airflow" step="0.1" required>
+
+    <label>Frequency (Hz):</label>
+    <input type="number" name="frequency" step="0.1" required>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction %}
+    <div class="result">{{ prediction }}</div>
+  {% endif %}
+
+</body>
+</html>
